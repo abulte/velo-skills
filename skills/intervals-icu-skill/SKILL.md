@@ -14,6 +14,8 @@ description: >
 Guide for LLM interaction with the intervals.icu REST API: fetching, interpreting,
 and acting on athlete training data.
 
+Full API reference: https://intervals.icu/api-docs
+
 ---
 
 ## Security: credentials never in LLM context
