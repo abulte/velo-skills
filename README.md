@@ -13,3 +13,4 @@ npx skills add abulte/velo-skills
 | Skill | Description |
 |-------|-------------|
 | [fit-workout-skill](skills/fit-workout-skill/SKILL.md) | Generate Garmin-compatible `.fit` workout files from plain-language or structured workout descriptions. Supports power targets (watts or % FTP), intervals.icu import, and USB transfer to Garmin devices. |
+| [intervals-icu-skill](skills/intervals-icu-skill/SKILL.md) | Fetch, interpret, and reason over intervals.icu athlete data — activities, wellness, PMC metrics (CTL/ATL/TSB), power curves, events, and workouts. Also covers writing code against the intervals.icu API. |
