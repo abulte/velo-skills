@@ -1,0 +1,2 @@
+[tasks.publish_and_update]
+run = ["git push origin main", "npx skills update -g"]
