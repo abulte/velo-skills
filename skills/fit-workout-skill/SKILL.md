@@ -188,6 +188,7 @@ def build_fit(workout_name, steps_data, filename):
 |---|---|---|
 | Steps don't appear in intervals.icu | Wrong field numbers in mesg 27 definition | Use exact field numbers from table above — this was the hard-won fix |
 | Power targets show 0W or garbage | Missing +1000 offset on custom_target_value_low/high | Add 1000 to both low and high watt values |
+| Z1 (or any open-ended zone) shows 1000%+ power in ICU | `low_w = 0` stores raw value +1000, which is the FIT `watts_offset` sentinel — ICU treats it as a special value and displays garbage | Use `low_w = 1` instead of 0 for zones with no lower bound; similarly use a finite cap for zones with no upper bound |
 | Duration shows as 0.9s instead of 900s | Duration stored in ms, fitparse divides by 1000 — this is correct | No fix needed; verify by checking `duration_time` field (should equal seconds) |
 | File rejected as invalid | CRC mismatch | Ensure CRC is computed over the full header bytes including the 4-byte size field |
 | Workout name truncated | str16() only keeps 15 chars | Expected — FIT spec limits step names to 16 bytes incl. null |
