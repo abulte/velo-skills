@@ -4,8 +4,21 @@ A collection of [Agent Skills](https://skills.sh) for cycling — training, equi
 
 ## Install
 
+**Claude Code (CLI)**
+
 ```bash
 npx skills add abulte/velo-skills
+```
+
+**Claude Desktop**
+
+Claude Desktop does not support filesystem-based skills. Each skill must be uploaded manually as a ZIP file via Settings → Capabilities → Skills → Upload skill.
+
+```fish
+# build zips from the repo root
+for skill in skills/*/
+    zip -j (basename $skill).zip $skill/SKILL.md
+end
 ```
 
 ## Skills
