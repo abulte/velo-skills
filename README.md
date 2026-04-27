@@ -21,6 +21,22 @@ for skill in skills/*/
 end
 ```
 
+## Update
+
+**Claude Code (CLI)**
+
+```bash
+mise run publish_and_update
+```
+
+**Claude Desktop**
+
+Build versioned zips (output to `dist/`), then use "Replace" on the existing skill in Settings → Capabilities → Skills.
+
+```bash
+mise run zip
+```
+
 ## Skills
 
 | Skill | Description |

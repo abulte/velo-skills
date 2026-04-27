@@ -1,2 +1,21 @@
+[tasks.zip]
+description = "Build versioned zip files in dist/ for Claude Desktop upload"
+run = """
+mkdir -p dist
+for skill in skills/*/; do
+  name=$(basename $skill)
+  version=$(git log -1 --format=%h -- "$skill")
+  zip -j "dist/${name}-${version}.zip" "$skill/SKILL.md"
+done
+"""
+
 [tasks.publish_and_update]
-run = ["git push origin main", "npx skills update -g"]
+depends = ["zip"]
+run = """
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo "Error: uncommitted changes, please commit before publishing"
+  exit 1
+fi
+git push origin main
+npx skills update -g
+"""
