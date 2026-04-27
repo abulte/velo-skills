@@ -4,9 +4,10 @@ run = """
 mkdir -p dist
 for skill in skills/*/; do
   name=$(basename $skill)
-  version=$(git log -1 --format=%h -- "$skill")
-  zip -j "dist/${name}-${version}.zip" "$skill/SKILL.md"
+  zip -j "dist/${name}.zip" "$skill/SKILL.md"
 done
+git add dist/
+git diff --cached --quiet || git commit -m "chore: update skill zips"
 """
 
 [tasks.publish_and_update]
