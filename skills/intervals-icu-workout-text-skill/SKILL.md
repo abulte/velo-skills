@@ -62,6 +62,7 @@ Every workout step follows this pattern:
 | `200-240w` | Watt range |
 | `Z2` | Coggan zone 2 |
 | `Z3-Z4` | Zone range |
+| `SS` | Sweet spot (88–93% FTP) |
 | `ramp 50%-80%` | Gradual increase over step duration |
 | `freeride` | ERG mode disabled (free effort) |
 
@@ -141,7 +142,7 @@ Timed prompts mid-step:
 | Z5 | VO2max | 106–120% |
 | Z6 | Anaerobic | > 120% |
 
-Sweet spot = 88–93% FTP (upper Z3 / lower Z4).
+Sweet spot = 88–93% FTP (upper Z3 / lower Z4) — use `SS` shorthand.
 
 ---
 
@@ -152,8 +153,9 @@ Sweet spot = 88–93% FTP (upper Z3 / lower Z4).
 
 2. **For each step** — determine:
    - Duration (convert to `m`/`s`/`h` units)
-   - Intensity: prefer `%` FTP for cycling, `Z` zones if user gave zone names,
-     or `w` if user gave absolute watts; use ranges for variable-intensity steps
+   - Intensity: **prefer zone notation** (`Z2`, `Z4`, `SS`) when no specific target is
+     required — use `%` FTP or watts only when precision matters or the user gave explicit
+     numbers; use `w` if the user gave absolute watts
    - Cadence if mentioned
    - Cue text if step has a name ("high cadence spin", "sprint")
 
@@ -173,14 +175,14 @@ Sweet spot = 88–93% FTP (upper Z3 / lower Z4).
 
 ```
 Warmup
-- 10m ramp 50%-80% 90rpm
+- 10m ramp Z1-Z3 90rpm
 
 Main Set 3x
-- 20m 88-93% 90rpm
-- 5m 55% 85rpm
+- 20m SS 90rpm
+- 5m Z1 85rpm
 
 Cooldown
-- 10m ramp 70%-50%
+- 10m ramp Z3-Z1
 ```
 
 ### VO2max short intervals (5×3min)
